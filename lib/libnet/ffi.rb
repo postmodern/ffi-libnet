@@ -67,11 +67,11 @@ module FFI
 
     build 'cdp', [:uint8, :uint8, :uint16, :uint16, :uint16, :pointer]
 
-    build 'icmpv4', [:uint8, :uint8, :uint16, :uint16, :uint16]
+    build 'icmpv4_echo', [:uint8, :uint8, :uint16, :uint16, :uint16]
     build 'icmpv4_mask', [:uint8, :uint8, :uint16, :uint16, :uint16, :uint32]
     build 'icmpv4_unreach', [:uint8, :uint8, :uint16]
     build 'icmpv4_redirect', [:uint8, :uint8, :uint16, :uint32]
-    build 'icmpv4_timeexeceed', [:uint8, :uint8, :uint16]
+    build 'icmpv4_timeexceed', [:uint8, :uint8, :uint16]
     build 'icmpv4_timestamp', [:uint8, :uint8, :uint16, :uint16, :uint16, :n_time, :n_time, :n_time]
 
     build 'igmp', [:uint8, :uint8, :uint16, :uint32]
@@ -97,7 +97,7 @@ module FFI
 
     build 'rip', [:uint8, :uint8, :uint16, :uint16, :uint16, :uint32, :uint32, :uint32, :uint32]
 
-    build 'rcp_call', [:uint32, :uint32, :uint32, :uint32, :uint32, :uint32, :uint32, :pointer, :uint32, :uint32, :pointer]
+    build 'rpc_call', [:uint32, :uint32, :uint32, :uint32, :uint32, :uint32, :uint32, :pointer, :uint32, :uint32, :pointer]
 
     build 'stp_conf', [:uint16, :uint8, :uint8, :uint8, :pointer, :uint32, :pointer, :uint16, :uint16, :uint16, :uint16, :uint16]
     build 'stp_tcn', [:uint16, :uint8, :uint8]
@@ -143,8 +143,8 @@ module FFI
 
     build 'hsrp', [:uint8, :uint8, :uint8, :uint8, :uint8, :uint8, :uint8, :uint8, :pointer, :uint32]
 
-    build 'link', [:pointer, :pointer, :pointer, :uint16]
-    auto_build 'link', [:pointer, :pointer, :uint16]
+    #build 'link', [:pointer, :pointer, :pointer, :uint16]
+    #auto_build 'link', [:pointer, :pointer, :uint16]
 
     attach_function :libnet_write, [:pointer], :int
 
@@ -154,10 +154,10 @@ module FFI
     attach_function :libnet_hex_aton, [:string, :pointer], :pointer
     attach_function :libnet_version, [], :string
 
-    attach_function :libnet_adv_call_packet, [:pointer, :pointer, :pointer], :int
-    attach_function :libnet_adv_call_header, [:pointer, :libnet_ptag_t, :pointer, :pointer], :int
+    attach_function :libnet_adv_cull_packet, [:pointer, :pointer, :pointer], :int
+    attach_function :libnet_adv_cull_header, [:pointer, :libnet_ptag_t, :pointer, :pointer], :int
 
-    attach_function :libnet_adv_write_link, [:pointer, :pointer, :uint32]
+    attach_function :libnet_adv_write_link, [:pointer, :pointer, :uint32], :int
     attach_function :libnet_adv_write_raw_ipv4, [:pointer, :pointer, :uint32], :int
 
     attach_function :libnet_adv_free_packet, [:pointer, :pointer], :void
@@ -166,7 +166,7 @@ module FFI
     attach_function :libnet_cq_remove, [:pointer], :pointer
     attach_function :libnet_cq_remove_by_label, [:string], :pointer
     attach_function :libnet_cq_getlabel, [:pointer], :string
-    attach_function :libnet_cq_finb_by_label, [:string], :pointer
+    attach_function :libnet_cq_find_by_label, [:string], :pointer
     attach_function :libnet_cq_destroy, [], :void
     attach_function :libnet_cq_head, [], :pointer
     attach_function :libnet_cq_last, [], :int
@@ -186,7 +186,7 @@ module FFI
     attach_function :libnet_open_raw4, [:pointer], :int
     attach_function :libnet_close_raw4, [:pointer], :int
 
-    attach_function :libnet_opne_raw6, [:pointer], :int
+    attach_function :libnet_open_raw6, [:pointer], :int
     attach_function :libnet_close_raw6, [:pointer], :int
 
     attach_function :libnet_select_device, [:pointer], :int
@@ -197,7 +197,7 @@ module FFI
     attach_function :libnet_do_checksum, [:pointer, :pointer, :int, :int], :int
     attach_function :libnet_compute_crc, [:pointer, :uint32], :uint32
     attach_function :libnet_ip_check, [:pointer, :int], :uint16
-    attach_function :libnet_ip_cksum, [:pointer, :int], :uint16
+    attach_function :libnet_in_cksum, [:pointer, :int], :uint16
 
     attach_function :libnet_pblock_probe, [:pointer, :libnet_ptag_t, :uint32, :uint8], :pointer
     attach_function :libnet_pblock_new, [:pointer, :uint32], :pointer

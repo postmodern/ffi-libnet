@@ -6,5 +6,6 @@ module FFI
   end
 
   alias_type :int32, :libnet_ptag_t
+  alias_type :uint32, :n_time
 
 end

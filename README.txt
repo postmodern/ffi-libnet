@@ -1,4 +1,4 @@
-= pcap-ffi
+= libnet-ffi
 
 * http://github.com/sophsec/libnet-ffi/
 * Postmodern (postmodern.mod3 at gmail.com)

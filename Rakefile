@@ -4,7 +4,7 @@ require 'rubygems'
 require 'hoe'
 require './lib/libnet/version.rb'
 
-Hoe.spec('pcap-ffi') do
+Hoe.spec('libnet-ffi') do
   self.rubyforge_name = 'libnet-ffi'
   self.developer('Postmodern','postmodern.mod3@gmail.com')
   self.remote_rdoc_dir = ''

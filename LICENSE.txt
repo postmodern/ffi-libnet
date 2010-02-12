@@ -1,23 +1,4 @@
-= libnet-ffi
-
-* http://github.com/sophsec/libnet-ffi/
-* Postmodern (postmodern.mod3 at gmail.com)
-
-== DESCRIPTION:
-
-Ruby FFI bindings for libnet.
-
-== FEATURES:
-
-== EXAMPLES:
-
-== INSTALL:
-
-  $ sudo gem install libnet-ffi
-
-== LICENSE:
-
-The MIT License
+(The MIT License)
 
 Copyright (c) 2009 Hal Brodigan
 

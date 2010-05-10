@@ -5,7 +5,7 @@ require './lib/libnet/version.rb'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = 'libnet-ffi'
+    gem.name = 'ffi-libnet'
     gem.version = FFI::Libnet::VERSION
     gem.summary = %Q{Ruby FFI bindings for libnet.}
     gem.description = %Q{Ruby FFI bindings for libnet.}

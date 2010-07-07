@@ -9,78 +9,86 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Postmodern"]
-  s.date = %q{2010-05-09}
+  s.date = %q{2010-07-07}
   s.description = %q{Ruby FFI bindings for libnet.}
   s.email = %q{postmodern.mod3@gmail.com}
   s.extra_rdoc_files = [
     "ChangeLog.md",
-     "LICENSE.txt",
-     "README.md"
+    "LICENSE.txt",
+    "README.md"
   ]
   s.files = [
     ".gitignore",
-     ".specopts",
-     ".yardopts",
-     "ChangeLog.md",
-     "LICENSE.txt",
-     "Manifest.txt",
-     "README.md",
-     "Rakefile",
-     "lib/libnet.rb",
-     "lib/libnet/context.rb",
-     "lib/libnet/context_queue.rb",
-     "lib/libnet/context_queue_descriptor.rb",
-     "lib/libnet/ethernet_addr.rb",
-     "lib/libnet/fddi_addr.rb",
-     "lib/libnet/ffi.rb",
-     "lib/libnet/headers/arp.rb",
-     "lib/libnet/headers/bgp4.rb",
-     "lib/libnet/headers/bgp4_notification.rb",
-     "lib/libnet/headers/bpg4_open.rb",
-     "lib/libnet/headers/cdp.rb",
-     "lib/libnet/headers/cdp_value.rb",
-     "lib/libnet/headers/dhcpv4.rb",
-     "lib/libnet/headers/dnsv4.rb",
-     "lib/libnet/headers/dnsv4_udp.rb",
-     "lib/libnet/headers/ethernet.rb",
-     "lib/libnet/headers/fddi.rb",
-     "lib/libnet/headers/ieee_802/arp.rb",
-     "lib/libnet/headers/ieee_802/eap.rb",
-     "lib/libnet/headers/ieee_802/ethernet.rb",
-     "lib/libnet/headers/ieee_802/llc.rb",
-     "lib/libnet/headers/ieee_802/snap.rb",
-     "lib/libnet/headers/ieee_802/vlan.rb",
-     "lib/libnet/in6_addr.rb",
-     "lib/libnet/port_list_chain.rb",
-     "lib/libnet/protocol_block.rb",
-     "lib/libnet/stats.rb",
-     "lib/libnet/typedefs.rb",
-     "lib/libnet/version.rb"
+    ".specopts",
+    ".yardopts",
+    "ChangeLog.md",
+    "Gemfile",
+    "LICENSE.txt",
+    "Manifest.txt",
+    "README.md",
+    "Rakefile",
+    "ffi-libnet.gemspec",
+    "lib/ffi/libnet.rb",
+    "lib/ffi/libnet/context.rb",
+    "lib/ffi/libnet/context_queue.rb",
+    "lib/ffi/libnet/context_queue_descriptor.rb",
+    "lib/ffi/libnet/ethernet_addr.rb",
+    "lib/ffi/libnet/fddi_addr.rb",
+    "lib/ffi/libnet/headers/arp.rb",
+    "lib/ffi/libnet/headers/bgp4.rb",
+    "lib/ffi/libnet/headers/bgp4_notification.rb",
+    "lib/ffi/libnet/headers/bpg4_open.rb",
+    "lib/ffi/libnet/headers/cdp.rb",
+    "lib/ffi/libnet/headers/cdp_value.rb",
+    "lib/ffi/libnet/headers/dhcpv4.rb",
+    "lib/ffi/libnet/headers/dnsv4.rb",
+    "lib/ffi/libnet/headers/dnsv4_udp.rb",
+    "lib/ffi/libnet/headers/ethernet.rb",
+    "lib/ffi/libnet/headers/fddi.rb",
+    "lib/ffi/libnet/headers/ieee_802/arp.rb",
+    "lib/ffi/libnet/headers/ieee_802/eap.rb",
+    "lib/ffi/libnet/headers/ieee_802/ethernet.rb",
+    "lib/ffi/libnet/headers/ieee_802/llc.rb",
+    "lib/ffi/libnet/headers/ieee_802/snap.rb",
+    "lib/ffi/libnet/headers/ieee_802/vlan.rb",
+    "lib/ffi/libnet/in6_addr.rb",
+    "lib/ffi/libnet/libnet.rb",
+    "lib/ffi/libnet/port_list_chain.rb",
+    "lib/ffi/libnet/protocol_block.rb",
+    "lib/ffi/libnet/stats.rb",
+    "lib/ffi/libnet/types.rb",
+    "lib/ffi/libnet/version.rb"
   ]
   s.has_rdoc = %q{yard}
   s.homepage = %q{http://github.com/sophsec/libnet-ffi}
-  s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.requirements = ["libnet"]
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Ruby FFI bindings for libnet.}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<ffi>, [">= 0.4.0"])
-      s.add_development_dependency(%q<rspec>, [">= 1.3.0"])
-      s.add_development_dependency(%q<yard>, [">= 0.5.3"])
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<ffi>, ["~> 0.6.0"])
+      s.add_development_dependency(%q<bundler>, ["~> 0.9.25"])
+      s.add_development_dependency(%q<rake>, ["~> 0.8.7"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.4.0"])
+      s.add_development_dependency(%q<rspec>, ["~> 1.3.0"])
     else
-      s.add_dependency(%q<ffi>, [">= 0.4.0"])
-      s.add_dependency(%q<rspec>, [">= 1.3.0"])
-      s.add_dependency(%q<yard>, [">= 0.5.3"])
+      s.add_dependency(%q<ffi>, ["~> 0.6.0"])
+      s.add_dependency(%q<bundler>, ["~> 0.9.25"])
+      s.add_dependency(%q<rake>, ["~> 0.8.7"])
+      s.add_dependency(%q<jeweler>, ["~> 1.4.0"])
+      s.add_dependency(%q<rspec>, ["~> 1.3.0"])
     end
   else
-    s.add_dependency(%q<ffi>, [">= 0.4.0"])
-    s.add_dependency(%q<rspec>, [">= 1.3.0"])
-    s.add_dependency(%q<yard>, [">= 0.5.3"])
+    s.add_dependency(%q<ffi>, ["~> 0.6.0"])
+    s.add_dependency(%q<bundler>, ["~> 0.9.25"])
+    s.add_dependency(%q<rake>, ["~> 0.8.7"])
+    s.add_dependency(%q<jeweler>, ["~> 1.4.0"])
+    s.add_dependency(%q<rspec>, ["~> 1.3.0"])
   end
 end
 

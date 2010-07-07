@@ -12,6 +12,10 @@ Ruby FFI bindings for libnet.
 
 ## Examples
 
+## Dependencies
+
+* [ffi](http://github.com/ffi/ffi) ~> 0.6.0
+
 ## Install
 
     $ sudo gem install ffi-libnet

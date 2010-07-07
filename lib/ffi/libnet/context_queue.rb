@@ -1,4 +1,4 @@
-require 'libnet/context'
+require 'ffi/libnet/context'
 
 require 'ffi'
 

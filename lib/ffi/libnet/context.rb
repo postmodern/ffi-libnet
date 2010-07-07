@@ -1,4 +1,4 @@
-require 'libnet/typedefs'
+require 'ffi/libnet/typedefs'
 
 require 'ffi'
 

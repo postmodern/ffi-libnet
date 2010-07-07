@@ -1,4 +1,4 @@
-require 'libnet/context_queue'
+require 'ffi/libnet/context_queue'
 
 require 'ffi'
 

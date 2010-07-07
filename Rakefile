@@ -21,6 +21,7 @@ Jeweler::Tasks.new do |gem|
   gem.email = 'postmodern.mod3@gmail.com'
   gem.homepage = 'http://github.com/sophsec/libnet-ffi'
   gem.authors = ['Postmodern']
+  gem.requirements = ['libnet']
   gem.has_rdoc = 'yard'
 end
 

@@ -1,2 +1,2 @@
-require 'ffi/libnet/ffi'
+require 'ffi/libnet/libnet'
 require 'ffi/libnet/version'

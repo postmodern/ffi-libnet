@@ -1,8 +1,0 @@
-History.txt
-Manifest.txt
-Rakefile
-README.txt
-lib/libnet.rb
-lib/libnet/typedefs.rb
-lib/libnet/version.rb
-lib/libnet/ffi.rb

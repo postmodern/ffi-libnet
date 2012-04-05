@@ -143,8 +143,8 @@ module FFI
 
     build 'hsrp', [:uint8, :uint8, :uint8, :uint8, :uint8, :uint8, :uint8, :uint8, :pointer, :uint32]
 
-    #build 'link', [:pointer, :pointer, :pointer, :uint16]
-    #auto_build 'link', [:pointer, :pointer, :uint16]
+    build 'link', [:pointer, :pointer, :pointer, :uint16]
+    auto_build 'link', [:pointer, :pointer, :uint16]
 
     attach_function :libnet_write, [:pointer], :int
 
@@ -205,7 +205,6 @@ module FFI
     attach_function :libnet_pblock_insert_before, [:pointer, :libnet_ptag_t, :libnet_ptag_t], :int
     attach_function :libnet_pblock_delete, [:pointer, :pointer], :void
     attach_function :libnet_pblock_update, [:pointer, :pointer, :uint32], :libnet_ptag_t
-    attach_function :libnet_pblock_record_ip_offset, [:pointer, :pointer], :void
     attach_function :libnet_pblock_find, [:pointer, :libnet_ptag_t], :pointer
     attach_function :libnet_pblock_append, [:pointer, :pointer, :pointer, :uint32], :int
     attach_function :libnet_pblock_setflags, [:pointer, :uint8], :void

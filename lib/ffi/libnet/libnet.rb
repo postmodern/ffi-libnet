@@ -1,5 +1,6 @@
 require 'ffi/libnet/types'
 require 'ffi/libnet/in6_addr'
+require 'ffi/libnet/context'
 
 require 'ffi'
 

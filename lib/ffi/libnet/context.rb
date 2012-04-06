@@ -1,4 +1,5 @@
 require 'ffi/libnet/types'
+require 'ffi/libnet/stats'
 
 require 'ffi'
 

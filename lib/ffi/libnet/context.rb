@@ -36,6 +36,10 @@ module FFI
         EtherAddr.new(Libnet.libnet_get_hwaddr(self))
       end
 
+      def write
+        Libnet.libnet_write(self)
+      end
+
       def destroy
         Libnet.libnet_destroy(self)
       end

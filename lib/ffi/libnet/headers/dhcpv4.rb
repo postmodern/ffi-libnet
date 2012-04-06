@@ -106,9 +106,9 @@ module FFI
                :dhcp_yip, :uint32,
                :dhcp_sip, :uint32,
                :dhcp_gip, :uint32,
-               :dhcp_chaddr, [NativeTypes::UINT8, 16],
-               :dhcp_sname, [NativeTypes::UINT8, 64],
-               :dhcp_file, [NativeTypes::UINT8, 128],
+               :dhcp_chaddr, [:uint8, 16],
+               :dhcp_sname, [:uint8, 64],
+               :dhcp_file, [:uint8, 128],
                :dhcp_magic, :uint32
 
       end

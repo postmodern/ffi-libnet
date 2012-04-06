@@ -16,12 +16,12 @@ module FFI
         TYPE_REVARP = 0x8035
 
         layout :fddi_frame_control, :uint8,
-               :fddi_dhost, [NativeTypes::UINT8, ADDR_LEN],
-               :fddi_shost, [NativeTypes::UINT8, ADDR_LEN],
+               :fddi_dhost, [:uint8, ADDR_LEN],
+               :fddi_shost, [:uint8, ADDR_LEN],
                :fddi_llc_dsap, :uint8,
                :fddi_llc_ssap, :uint8,
                :fddi_llc_control_field, :uint8,
-               :fddi_llc_org_code, [NativeTypes::UINT8, ORG_CODE_SIZE],
+               :fddi_llc_org_code, [:uint8, ORG_CODE_SIZE],
                :fddi_type, :uint8,
                :fddi_type1, :uint8
 

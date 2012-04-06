@@ -12,7 +12,7 @@ module FFI
         NOTIFICATION = 3
         KEEP_ALIVe = 4
 
-        layout :marker, [NativeTypes::UINT8, MARKER_SIZE],
+        layout :marker, [:uint8, MARKER_SIZE],
                :len, :uint16,
                :type, :uint8
 

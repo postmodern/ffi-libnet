@@ -16,8 +16,8 @@ module FFI
         TYPE_MPLS = 0x8847  # MPLS
         TYPE_LOOPBACK = 0x9000  # used to test interfaces
 
-        layout :ether_dhost, [NativeTypes::UINT8, ADDR_LEN],
-               :ether_shot, [NativeTypes::UINT8, ADDR_LEN],
+        layout :ether_dhost, [:uint8, ADDR_LEN],
+               :ether_shot, [:uint8, ADDR_LEN],
                :ether_type, :uint16
 
       end

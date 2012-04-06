@@ -8,8 +8,8 @@ module FFI
 
           ADDR_LEN = 6
 
-          layout :dhost, [NativeTypes::UINT8, ADDR_LEN],
-                 :shost, [NativeTypes::UINT8, ADDR_LEN],
+          layout :dhost, [:uint8, ADDR_LEN],
+                 :shost, [:uint8, ADDR_LEN],
                  :len, :int16
 
         end

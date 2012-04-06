@@ -9,7 +9,7 @@ module FFI
           layout :snap_dsap, :uint8,
                  :snap_ssap, :uint8,
                  :snap_control, :uint8,
-                 :snapp_oui, [NativeTypes::UINT8, 3],
+                 :snapp_oui, [:uint8, 3],
                  :snap_type, :uint16
 
         end

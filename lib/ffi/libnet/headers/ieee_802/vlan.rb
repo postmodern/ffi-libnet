@@ -12,8 +12,8 @@ module FFI
           CFIMASK = 0x0001 # CFI mask
           VIDMASK = 0x0fff # vid mask
 
-          layout :vlan_dhost, [NativeTypes::UINT8, ADDR_LEN],
-            :vlan_shost, [NativeTypes::UINT8, ADDR_LEN],
+          layout :vlan_dhost, [:uint8, ADDR_LEN],
+            :vlan_shost, [:uint8, ADDR_LEN],
             :vlan_tpi, :uint16,
             :vlan_priority_c_vid, :uint16,
             :vlan_len, :uint16

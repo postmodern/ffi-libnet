@@ -2,7 +2,7 @@ require 'ffi'
 
 module FFI
   module Libnet
-    class EthernetAddr < FFI::Struct
+    class EtherAddr < FFI::Struct
 
       layout :ether_dhost, [NativeTypes::UINT8,6]
 

@@ -5,6 +5,7 @@ require 'ffi'
 module FFI
   module Libnet
     class Context < FFI::Struct
+      NONE = 0xf8            # no injection type, only construct packets
       LINK = 0x00            # link-layer interface
       RAW4 = 0x01            # raw socket interface (ipv4)
       RAW6 = 0x02            # raw socket interface (ipv6)

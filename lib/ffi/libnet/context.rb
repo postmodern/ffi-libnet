@@ -1,5 +1,6 @@
 require 'ffi/libnet/types'
 require 'ffi/libnet/stats'
+require 'ffi/libnet/ether_addr'
 
 require 'ffi'
 
@@ -30,6 +31,10 @@ module FFI
              :label, [:char, LABEL_SIZE],
              :err_buf, [:char, ERRBUF_SIZE],
              :total_size, :uint32
+
+      def get_hwaddr
+        EtherAddr.new(Libnet.libnet_get_hwaddr(self))
+      end
 
       def destroy
         Libnet.libnet_destroy(self)

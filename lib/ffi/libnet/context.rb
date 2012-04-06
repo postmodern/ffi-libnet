@@ -44,6 +44,10 @@ module FFI
         Libnet.libnet_write(self)
       end
 
+      def stats
+        self[:stats]
+      end
+
       def destroy
         Libnet.libnet_destroy(self)
       end

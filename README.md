@@ -14,7 +14,7 @@ Ruby FFI bindings for libnet.
 
 ## Requirements
 
-* [libnet](http://libnet.sourceforge.net/)
+* [libnet](http://libnet.sourceforge.net/) >= 1.0.0
 * [ffi](http://github.com/ffi/ffi) ~> 1.0
 
 ## Install

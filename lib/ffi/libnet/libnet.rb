@@ -8,9 +8,9 @@ module FFI
   module Libnet
     extend FFI::Library
 
-    ffi_lib 'libnet'
+    ffi_lib ['libnet', 'libnet.so.1']
 
-    attach_function :libnet_init, [:int, :string, :string], :pointer
+    attach_function :libnet_init, [:int, :string, :buffer_out], :pointer
     attach_function :libnet_destroy, [:pointer], :void
 
     attach_function :libnet_clear_packet, [:pointer], :void
@@ -213,5 +213,50 @@ module FFI
     attach_function :libnet_pblock_coalesce, [:pointer, :pointer, :pointer], :int
 
     attach_function :libnet_check_iface, [:pointer], :int
+
+    #
+    # @param [Symbol] type
+    #   The type. Can be one of:
+    #
+    #   * `:none`
+    #   * `:link`
+    #   * `:raw4`
+    #   * `:raw6`
+    #
+    # @param [String] device
+    #   The device to use.
+    #
+    # @raise [ArgumentError]
+    #   An invalid type was given.
+    #
+    # @raise [RuntimeError]
+    #   Could not open the libnet context.
+    #
+    # @return [Context]
+    #   The newly created context.
+    #
+    def self.init(type,device)
+      type = case type
+             when :none
+               Context::NONE
+             when :link
+               Context::LINK
+             when :raw4
+               Context::RAW4
+             when :raw6
+               Context::RAW6
+             else
+               raise(ArgumentError,"unknown link type: #{type}")
+             end
+
+      errbuf  = Buffer.new(ERRBUF_SIZE)
+      context_ptr = libnet_init(type,device,errbuf)
+
+      if context_ptr.null?
+        raise("Could not open libnet context: " + errbuf.get_string(0))
+      end
+
+      return Context.new(context_ptr)
+    end
   end
 end

@@ -32,8 +32,40 @@ module FFI
              :err_buf, [:char, ERRBUF_SIZE],
              :total_size, :uint32
 
+      def fd
+        self[:fd]
+      end
+
+      alias fd get_fd
+
+      def device
+        self[:device]
+      end
+
+      alias device get_device
+
       def get_hwaddr
         EtherAddr.new(Libnet.libnet_get_hwaddr(self))
+      end
+
+      def get_ipaddr4
+        Libnet.libnet_get_ipaddr4(self)
+      end
+
+      def get_ipaddr6
+        In6Addr.new(Libnet.libnet_get_ipaddr6(self))
+      end
+
+      def get_pbuf(ptag)
+        Libnet.libnet_getpbuf(self,ptag)
+      end
+
+      def get_pbuf_size(ptag)
+        Libnet.libnet_getpbuf_size(self,ptag)
+      end
+
+      def get_packet_size
+        Libnet.libnet_getpacket_size(self)
       end
 
       def clear_packet
@@ -47,6 +79,12 @@ module FFI
       def stats
         self[:stats]
       end
+
+      def err_buf
+        self[:err_buf]
+      end
+
+      alias err_buf get_error
 
       def destroy
         Libnet.libnet_destroy(self)
